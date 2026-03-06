@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Product } from '../../../../types/Product';
 import { ProductCard } from '../ProductCard';
 import styles from './CatalogProducts.module.scss';

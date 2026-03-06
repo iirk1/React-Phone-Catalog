@@ -1,4 +1,4 @@
-import { FC, SetStateAction } from 'react';
+import { FC } from 'react';
 import styles from './ProductCard.module.scss';
 import { Link } from 'react-router-dom';
 import { Favorite } from '../Favorite';

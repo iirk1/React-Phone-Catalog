@@ -10,7 +10,7 @@ The project demonstrates **component-based architecture, state management with R
 ## **LIVE DEMO**
 
 **Experience the live website:**
-👉 [React Phone Catalog]()
+👉 [React Phone Catalog](https://iirk1.github.io/React-Phone-Catalog/)
 
 ---
 

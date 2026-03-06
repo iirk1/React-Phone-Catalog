@@ -1,21 +1,29 @@
-import React from 'react';
-import './App.scss';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
+import { Header } from './modules/shared/components/Header';
+import { Footer } from './modules/shared/components/Footer/Footer';
+import { useEffect } from 'react';
+import { useAppSelector } from './app/hooks';
+import './styles/global.scss';
 
-interface Props {
-  onClick: () => void;
-  children: React.ReactNode;
-}
+export const App = () => {
+  const favorites = useAppSelector(state => state.favorites);
+  const addedToCart = useAppSelector(state => state.cart);
 
-export const Provider: React.FC<Props> = React.memo(({ onClick, children }) => (
-  <button type="button" onClick={onClick}>
-    {children}
-  </button>
-));
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem('cart', JSON.stringify(addedToCart));
+  }, [favorites, addedToCart]);
 
-export const App: React.FC = () => {
   return (
-    <div className="starter">
-      <Provider onClick={() => ({})}>TodoList</Provider>
-    </div>
+    <>
+      <ScrollRestoration />
+      <div className="app">
+        <Header />
+        <main className="main">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 };
